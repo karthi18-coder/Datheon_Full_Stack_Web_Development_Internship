@@ -19,8 +19,9 @@ A responsive personal portfolio website showcasing my profile, technical skills,
 
 ### Featured Projects
 - PondGuardian
-- IBVAP — Intelligent Video Analytics Platform
+- IBVAP —> Intelligent Video Analytics Platform
 - AI Food Review Analyzer
+- TaskFlow
 
 ### Live Demo
 https://karthi18-coder.github.io/Datheon_Full_Stack_Web_Development_Internship/
