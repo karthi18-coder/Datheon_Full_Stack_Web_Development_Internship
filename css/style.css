@@ -1,4 +1,4 @@
-/* =========================
+9/* =========================
    1. DESIGN SYSTEM
 ========================= */
 
@@ -1202,7 +1202,7 @@ a:focus-visible {
   .timeline-item {
     grid-template-columns: 1fr;
     gap: 8px;
-  }
+3  }
 
   .resume-panel {
     align-items: flex-start;
@@ -1246,6 +1246,335 @@ a:focus-visible {
     margin-left: 0;
   }
 }
+
+/* =====================================
+   3D HERO DEVELOPER WORKSPACE
+===================================== */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  gap: 35px;
+  min-height: 650px;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-visual {
+  width: 100%;
+  min-width: 0;
+  perspective: 1100px;
+}
+
+.workspace-scene {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 430px;
+  margin: auto;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out;
+  animation: workspace-float 5s ease-in-out infinite;
+}
+
+/* Browser windows */
+
+.browser-window {
+  position: absolute;
+  width: 260px;
+  height: 210px;
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.78);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.10);
+  overflow: hidden;
+}
+
+.browser-back {
+  top: 35px;
+  right: 5px;
+  transform: translateZ(-65px) rotateY(-13deg) rotateX(5deg);
+  opacity: 0.9;
+}
+
+.browser-bar,
+.code-titlebar {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  background: rgba(240,240,240,0.85);
+}
+
+.browser-bar span,
+.window-dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff806e;
+}
+
+.browser-bar span:nth-child(2),
+.window-dots i:nth-child(2) {
+  background: #ffc36a;
+}
+
+.browser-bar span:nth-child(3),
+.window-dots i:nth-child(3) {
+  background: #52b99c;
+}
+
+.browser-bar small {
+  margin-left: auto;
+  font-size: 9px;
+  color: #777;
+}
+
+.browser-preview {
+  padding: 25px;
+}
+
+.preview-heading {
+  width: 65%;
+  height: 13px;
+  border-radius: 5px;
+  background: #e98570;
+  margin-bottom: 15px;
+}
+
+.preview-line {
+  width: 90%;
+  height: 6px;
+  border-radius: 5px;
+  background: #dedede;
+  margin: 10px 0;
+}
+
+.preview-line.short {
+  width: 55%;
+}
+
+.preview-blocks {
+  display: flex;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.preview-blocks span {
+  width: 48px;
+  height: 38px;
+  border-radius: 7px;
+  background: #f4c4a8;
+}
+
+.preview-blocks span:nth-child(2) {
+  background: #b8d9cf;
+}
+
+.preview-blocks span:nth-child(3) {
+  background: #e9d6aa;
+}
+
+/* Main code editor */
+
+.code-window {
+  position: absolute;
+  width: 310px;
+  min-height: 210px;
+  top: 100px;
+  left: 15px;
+  z-index: 3;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 13px;
+  overflow: hidden;
+  background: #252b34;
+  box-shadow: 0 28px 55px rgba(0,0,0,0.22);
+  transform: translateZ(65px) rotateY(10deg) rotateX(-4deg);
+}
+
+.code-titlebar {
+  background: #343b45;
+  color: #eee;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+}
+
+.window-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.window-dots i {
+  display: block;
+}
+
+.code-titlebar > span {
+  margin: auto;
+}
+
+.code-content {
+  padding: 22px 12px;
+  color: #e7e7e7;
+  font: 10px/2 'DM Mono', monospace;
+  white-space: nowrap;
+}
+
+.code-number {
+  display: inline-block;
+  width: 24px;
+  color: #79818d;
+}
+
+.code-purple { color: #d6a5ff; }
+.code-orange { color: #ffbd83; }
+.code-green { color: #a8dca5; }
+
+.code-cursor {
+  width: 2px;
+  height: 12px;
+  background: #ff806e;
+  display: inline-block;
+  vertical-align: middle;
+  animation: cursor-blink 1s steps(2) infinite;
+}
+
+/* Technology icons */
+
+.tech-orbit {
+  position: absolute;
+  z-index: 5;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  font-size: 19px;
+  font-weight: 800;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.13);
+  background: #fff;
+  animation: icon-float 4s ease-in-out infinite;
+}
+
+.tech-html {
+  top: 30px;
+  left: 65px;
+  color: #e66b45;
+}
+
+.tech-css {
+  right: 20px;
+  top: 190px;
+  color: #397acb;
+  animation-delay: 0.5s;
+}
+
+.tech-js {
+  bottom: 75px;
+  left: 25px;
+  color: #b48a17;
+  background: #fff3b8;
+  animation-delay: 1s;
+}
+
+.tech-bootstrap {
+  bottom: 45px;
+  right: 80px;
+  color: #7952b3;
+  animation-delay: 1.5s;
+}
+
+/* Laptop base */
+
+.laptop-base {
+  position: absolute;
+  width: 350px;
+  height: 17px;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%) rotateX(60deg);
+  border-radius: 5px 5px 18px 18px;
+  background: linear-gradient(90deg, #999, #e4e4e4, #aaa);
+  box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+}
+
+.laptop-notch {
+  width: 45px;
+  height: 4px;
+  margin: auto;
+  border-radius: 0 0 5px 5px;
+  background: #888;
+}
+
+/* Animations */
+
+@keyframes workspace-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+@keyframes icon-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
+
+@keyframes cursor-blink {
+  50% { opacity: 0; }
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 70px;
+  }
+
+  .hero-visual {
+    margin-top: 20px;
+  }
+
+  .workspace-scene {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .workspace-scene {
+    height: 340px;
+    transform: scale(0.82);
+    transform-origin: top center;
+    margin-bottom: -55px;
+  }
+
+  .code-window {
+    width: 270px;
+    left: 0;
+  }
+
+  .browser-window {
+    width: 220px;
+  }
+
+  .laptop-base {
+    width: 290px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workspace-scene,
+  .tech-orbit,
+  .code-cursor {
+    animation: none;
+  }
+}
+
 
 /* =========================
    14. ANIMATIONS & ACCESSIBILITY
