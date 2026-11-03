@@ -1760,6 +1760,62 @@ a:focus-visible {
     width: 290px;
   }
 }
+/* MINIMAL SKILLS MARQUEE */
+
+.ticker {
+  width: 100%;
+  overflow: hidden;
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 28s linear infinite;
+}
+
+.ticker-content {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 35px;
+  padding-right: 35px;
+  white-space: nowrap;
+}
+
+.ticker-content span {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--text);
+}
+
+.ticker-content .ticker-star {
+  color: var(--accent);
+  font-size: 19px;
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .workspace-scene,
