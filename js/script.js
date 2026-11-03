@@ -222,6 +222,34 @@ projectModal.addEventListener("click", (event) => {
   }
 });
 
+/* 3D HERO MOUSE INTERACTION */
+
+const workspace = document.getElementById("workspace-scene");
+
+if (workspace) {
+  const heroVisual = workspace.closest(".hero-visual");
+
+  heroVisual.addEventListener("mousemove", (event) => {
+    if (window.innerWidth <= 900) return;
+
+    const rect = heroVisual.getBoundingClientRect();
+
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+
+    const rotateY = (x - 0.5) * 12;
+    const rotateX = (0.5 - y) * 10;
+
+    workspace.style.transform =
+      `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+
+  heroVisual.addEventListener("mouseleave", () => {
+    workspace.style.transform = "";
+  });
+}
+
+
 
 // =========================
 // 7. CURRENT FOOTER YEAR
